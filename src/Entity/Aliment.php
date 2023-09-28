@@ -22,6 +22,9 @@ class Aliment
     #[ORM\JoinColumn(nullable: false)]
     private ?TypeAliment $type = null;
 
+    #[ORM\Column(length: 10, nullable: true)]
+    private ?string $unite = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -47,6 +50,18 @@ class Aliment
     public function setType(?TypeAliment $type): static
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getUnite(): ?string
+    {
+        return $this->unite;
+    }
+
+    public function setUnite(?string $unite): static
+    {
+        $this->unite = $unite;
 
         return $this;
     }
