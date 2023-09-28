@@ -25,6 +25,9 @@ class Aliment
     #[ORM\Column(length: 10, nullable: true)]
     private ?string $unite = null;
 
+    #[ORM\ManyToOne(inversedBy: 'aliments')]
+    private ?ListeCourse $listeCourse = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -62,6 +65,18 @@ class Aliment
     public function setUnite(?string $unite): static
     {
         $this->unite = $unite;
+
+        return $this;
+    }
+
+    public function getListeCourse(): ?ListeCourse
+    {
+        return $this->listeCourse;
+    }
+
+    public function setListeCourse(?ListeCourse $listeCourse): static
+    {
+        $this->listeCourse = $listeCourse;
 
         return $this;
     }
